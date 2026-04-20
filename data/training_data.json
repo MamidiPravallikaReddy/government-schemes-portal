@@ -1,0 +1,368 @@
+{
+  "intents": [
+    {
+      "tag": "eligibility_farmer",
+      "patterns": [
+        "I am a farmer, what schemes am I eligible for?",
+        "Schemes for farmers",
+        "Farmer benefits",
+        "What help is available for farmers?",
+        "Kisan yojana",
+        "Agricultural schemes for farmers",
+        "I cultivate crops, any schemes for me?",
+        "मैं एक किसान हूं, मेरे लिए कौन सी योजनाएं हैं?",
+        "किसानों के लिए योजनाएं",
+        "खेती के लिए सहायता",
+        "Naan vivasayi, ennai en schemes irukku?",
+        "Manemu raithu, em schemes chutundi?"
+      ],
+      "responses": [
+        "As a farmer, you may be eligible for schemes like PM-KISAN, Soil Health Card Scheme, Pradhan Mantri Fasal Bima Yojana, and various state-specific agricultural schemes.",
+        "There are several schemes for farmers including financial assistance, crop insurance, and equipment subsidies."
+      ],
+      "schemes": ["PM-KISAN", "Pradhan Mantri Fasal Bima Yojana", "Soil Health Card Scheme", "Kisan Credit Card"]
+    },
+    {
+      "tag": "eligibility_student",
+      "patterns": [
+        "I am a student, what scholarships are available?",
+        "Education schemes for students",
+        "Scholarships for higher education",
+        "Financial help for studies",
+        "Student loans",
+        "What schemes help with education expenses?",
+        "मैं एक छात्र हूं, मेरे लिए छात्रवृत्ति योजनाएं क्या हैं?",
+        "छात्रों के लिए योजनाएं",
+        "Naan mathira, ennai en scholarship schemes irukku?"
+      ],
+      "responses": [
+        "Students can benefit from various scholarship schemes like National Scholarship Portal, Post-Matric Scholarship, and state-specific education schemes.",
+        "There are many scholarships available for students from different categories and economic backgrounds."
+      ],
+      "schemes": ["Post-Matric Scholarship Scheme", "National Scholarship Portal", "PM Scholarship Scheme", "Central Sector Scholarship Scheme"]
+    },
+    {
+      "tag": "eligibility_women",
+      "patterns": [
+        "Schemes for women",
+        "Women empowerment schemes",
+        "What help is available for women?",
+        "Schemes for mothers",
+        "Mahila yojana",
+        "Women entrepreneur schemes",
+        "महिलाओं के लिए योजनाएं",
+        "महिला सशक्तिकरण",
+        "Pen makal yoganalu",
+        "Aniruddha yoganalu"
+      ],
+      "responses": [
+        "There are many schemes specifically for women including Beti Bachao Beti Padhao, Sukanya Samriddhi Yojana, and various self-help group schemes.",
+        "Women can benefit from financial assistance, skill development, and entrepreneurship schemes."
+      ],
+      "schemes": ["Beti Bachao Beti Padhao", "Sukanya Samriddhi Yojana", "Pradhan Mantri Matru Vandana Yojana", "Stand Up India for Women"]
+    },
+    {
+      "tag": "eligibility_senior_citizen",
+      "patterns": [
+        "Schemes for senior citizens",
+        "Help for old age",
+        "Elderly pension schemes",
+        "Senior citizen benefits",
+        "What help for pensioners?",
+        "बुजुर्गों के लिए योजनाएं",
+        "वृद्धावस्था पेंशन",
+        "Vayasuku yoganalu"
+      ],
+      "responses": [
+        "Senior citizens can benefit from schemes like Pradhan Mantri Vaya Vandana Yojana, Indira Gandhi National Old Age Pension Scheme, and health insurance schemes.",
+        "There are comprehensive schemes for elderly people including pension, health coverage, and financial assistance."
+      ],
+      "schemes": ["Indira Gandhi National Old Age Pension Scheme", "Pradhan Mantri Vaya Vandana Yojana", "Atal Pension Yojana"]
+    },
+    {
+      "tag": "eligibility_business",
+      "patterns": [
+        "Business startup schemes",
+        "Entrepreneurship schemes",
+        "Loan for business",
+        "Small business help",
+        "Self-employment schemes",
+        "व्यवसाय शुरू करने के लिए योजनाएं",
+        "उद्यमिता योजनाएं",
+        "Business loan schemes"
+      ],
+      "responses": [
+        "Entrepreneurs and business startups can benefit from schemes like PM Mudra Loan, Stand Up India, and Pradhan Mantri Employment Generation Program.",
+        "There are schemes offering business loans at low interest rates, training, and financial support for small and micro enterprises."
+      ],
+      "schemes": ["Pradhan Mantri Mudra Yojana", "Stand Up India", "Pradhan Mantri Employment Generation Program"]
+    },
+    {
+      "tag": "benefits_amount",
+      "patterns": [
+        "How much money will I get?",
+        "What is the financial assistance amount?",
+        "Subsidy percentage",
+        "Loan amount available",
+        "What benefits are provided?",
+        "Financial help details",
+        "मुझे कितना पैसा मिलेगा?",
+        "वित्तीय सहायता की राशि क्या है?",
+        "Ennai enna amount kitaikum?"
+      ],
+      "responses": [
+        "Financial assistance varies by scheme. Some schemes offer up to ₹1,00,000 for marriage assistance, while education scholarships provide ₹500-₹5,000 per month.",
+        "Different schemes offer different benefits including direct cash transfers, subsidies, loans, and insurance coverage."
+      ]
+    },
+    {
+      "tag": "application_process",
+      "patterns": [
+        "How to apply for a scheme?",
+        "Application process",
+        "Where to submit application?",
+        "Online application procedure",
+        "How to register for a scheme?",
+        "Steps to apply",
+        "आवेदन कैसे करें?",
+        "आवेदन प्रक्रिया क्या है?",
+        "Ennai en madhyamam apply pannanum?"
+      ],
+      "responses": [
+        "Most schemes can be applied online through the official portal. You'll need to register with your mobile number, fill the application form, and upload required documents.",
+        "The application process typically involves online registration, form filling, document upload, and submission. Some schemes may require offline submission at designated offices."
+      ]
+    },
+    {
+      "tag": "documents_required",
+      "patterns": [
+        "What documents are needed?",
+        "Document list for application",
+        "Required papers",
+        "What certificates are required?",
+        "Documents needed to apply",
+        "कौन से दस्तावेज़ चाहिए?",
+        "Yen documents required?",
+        "What proof do I need?"
+      ],
+      "responses": [
+        "Commonly required documents include Aadhaar card, income certificate, caste certificate (if applicable), residence proof, and bank account details.",
+        "Document requirements vary by scheme. Generally, you'll need identity proof, address proof, income certificate, and educational certificates."
+      ]
+    },
+    {
+      "tag": "eligibility_check",
+      "patterns": [
+        "Am I eligible for this scheme?",
+        "Check my eligibility",
+        "Do I qualify?",
+        "Can I apply?",
+        "क्या मैं पात्र हूं?",
+        "Naan eligible a?"
+      ],
+      "responses": [
+        "To check eligibility, I need to know: 1) Your occupation/status (farmer, student, etc.), 2) Family income, 3) Category (General/OBC/SC/ST), 4) Location/State. Can you share these details?",
+        "Eligibility criteria vary by scheme. To help you better, please tell me about your background - your profession, education, income, and which scheme you're interested in."
+      ]
+    },
+    {
+      "tag": "clarify_income",
+      "patterns": [
+        "What is family income?",
+        "How is income calculated?",
+        "What counts as income?",
+        "परिवार की आय क्या है?",
+        "Kutumbam dhana how calculated?"
+      ],
+      "responses": [
+        "Family income includes: annual salary, agricultural produce value, business profit, rent/lease income, and pension. This is calculated on a financial year basis (April-March).",
+        "Income is the total earnings of all family members combined. Include salary, business profit, agricultural income, and other sources."
+      ]
+    },
+    {
+      "tag": "clarify_category",
+      "patterns": [
+        "What is caste category?",
+        "General vs OBC vs SC vs ST",
+        "How to determine category?",
+        "जाति श्रेणी क्या है?",
+        "Category determine yela?"
+      ],
+      "responses": [
+        "Category refers to your social classification: General, OBC (Other Backward Class), SC (Scheduled Caste), ST (Scheduled Tribe). This is mentioned in government certificates. For schemes, this determines eligibility and reservation benefits.",
+        "Your category depends on your social status: General (no reservation), OBC (Other Backward Class), SC (Scheduled Caste), ST (Scheduled Tribe). Check your caste certificate for confirmation."
+      ]
+    },
+    {
+      "tag": "banking_details",
+      "patterns": [
+        "Bank account required?",
+        "Do I need a bank account?",
+        "How to open a bank account?",
+        "बैंक खाता आवश्यक है?",
+        "Bank account openya?"
+      ],
+      "responses": [
+        "Yes, a bank account is required for most schemes as benefits are transferred directly to your account. You can open one at any bank with Aadhaar ID. It's free and takes 30 minutes.",
+        "Bank account is mandatory for direct benefit transfer. Visit any commercial bank (SBI, HDFC, ICICI, etc.) with your Aadhaar card and a mobile number to open one."
+      ]
+    },
+    {
+      "tag": "aadhar_requirement",
+      "patterns": [
+        "Aadhaar required?",
+        "Do I need Aadhaar?",
+        "Can I apply without Aadhaar?",
+        "आधार कार्ड जरूरी है?",
+        "Aadhaar without apply possible?"
+      ],
+      "responses": [
+        "Aadhaar is required for most government schemes for identity verification and direct benefit transfer. If you don't have Aadhaar, visit the nearest Aadhaar enrollment center to apply. It's free.",
+        "Most schemes require Aadhaar. You can get Aadhaar at UIDAI enrollment centers with any proof of residence and identity."
+      ]
+    },
+    {
+      "tag": "payment_method",
+      "patterns": [
+        "How are benefits paid?",
+        "Payment method for schemes",
+        "When will I get the money?",
+        "Direct transfer to bank?",
+        "लाभ का भुगतान कैसे होता है?",
+        "पैसा कब आएगा?"
+      ],
+      "responses": [
+        "Benefits are typically transferred directly to your bank account. After approval, it takes 15-30 days for the first disbursement. Subsequent payments follow the scheme schedule.",
+        "Most schemes use Direct Benefit Transfer (DBT). Money goes directly to your linked bank account within 15-30 days of approval. Some schemes have monthly or annual payments."
+      ]
+    },
+    {
+      "tag": "rejection_reason",
+      "patterns": [
+        "Why was my application rejected?",
+        "Application rejected",
+        "How to appeal rejection?",
+        "Can I reapply?",
+        "मेरे आवेदन को क्यों अस्वीकार किया गया?",
+        "Appeal pananum?"
+      ],
+      "responses": [
+        "Common rejection reasons: incomplete documents, not meeting eligibility criteria, documents not clear/authentic, or exceeding income limits. Check the rejection notice. You can appeal within 30 days with corrected documents.",
+        "If rejected, the notification will specify reasons. Usually it's due to missing documents or not meeting eligibility. You can submit an appeal or reapply with corrected documents."
+      ]
+    },
+    {
+      "tag": "scheme_deadline",
+      "patterns": [
+        "When is the deadline?",
+        "Application deadline",
+        "Last date to apply",
+        "Closing date for applications",
+        "आवेदन की अंतिम तारीख क्या है?",
+        "Yojana deadline eni?"
+      ],
+      "responses": [
+        "Application deadlines vary by scheme and change yearly. Check the official scheme website or portal for current deadlines. You can also ask me about a specific scheme's deadline.",
+        "Each scheme has different deadlines. Some are open throughout the year, others have specific periods. Which scheme are you interested in? I can check the deadline."
+      ]
+    }
+  ],
+  
+  "scheme_mappings": {
+    "PM-KISAN": {
+      "keywords": ["farmer", "kisan", "agriculture", "crop", "financial", "6000", "income"],
+      "category": "Agriculture",
+      "eligibility": "Landholding farmers",
+      "benefits": "₹6,000 per year in three installments",
+      "documents": ["Land records", "Aadhaar", "Bank account"],
+      "application_method": "pmkisan.gov.in"
+    },
+    "Post-Matric Scholarship Scheme": {
+      "keywords": ["student", "scholarship", "education", "college", "university"],
+      "category": "Education",
+      "eligibility": "SC/ST/OBC students with family income below limit",
+      "benefits": "Tuition fee + maintenance allowance (₹500-₹5000/month)",
+      "documents": ["Caste certificate", "Income certificate", "Mark sheets"],
+      "application_method": "State scholarship portal"
+    },
+    "Beti Bachao Beti Padhao": {
+      "keywords": ["girl", "female", "daughter", "women", "education"],
+      "category": "Women & Child",
+      "eligibility": "Families with girl children",
+      "benefits": "Educational support and awareness",
+      "documents": ["Birth certificate", "Aadhaar", "Parents ID"],
+      "application_method": "School/Bank/Government office"
+    },
+    "Pradhan Mantri Fasal Bima Yojana": {
+      "keywords": ["crop", "insurance", "farm", "weather", "loss"],
+      "category": "Agriculture",
+      "eligibility": "All farmers growing notified crops",
+      "benefits": "Crop insurance coverage",
+      "documents": ["Land records", "Aadhaar", "Bank account"],
+      "application_method": "Bank or agriculture office"
+    },
+    "Sukanya Samriddhi Yojana": {
+      "keywords": ["daughter", "girl", "savings", "investment"],
+      "category": "Women & Child",
+      "eligibility": "For girls below 10 years",
+      "benefits": "7.6% interest + tax benefits",
+      "documents": ["Birth certificate", "Parent ID", "Address proof"],
+      "application_method": "Bank/Post office"
+    },
+    "Pradhan Mantri Mudra Yojana": {
+      "keywords": ["business", "startup", "loan", "self-employment"],
+      "category": "Business",
+      "eligibility": "Individual entrepreneurs",
+      "benefits": "Loans up to ₹10 lakhs",
+      "documents": ["Business plan", "Aadhaar", "Bank account"],
+      "application_method": "Bank or Mudra portal"
+    },
+    "Stand Up India": {
+      "keywords": ["entrepreneur", "women", "SC/ST", "business"],
+      "category": "Business",
+      "eligibility": "Women/SC/ST first-time entrepreneurs",
+      "benefits": "Loan up to ₹25 lakhs with 5% subsidy",
+      "documents": ["Business proposal", "Aadhaar", "ITR"],
+      "application_method": "SIDBI nodal bank"
+    },
+    "Pradhan Mantri Awas Yojana": {
+      "keywords": ["housing", "house", "home", "shelter"],
+      "category": "Housing",
+      "eligibility": "EWS/LIG households",
+      "benefits": "Subsidy up to ₹2.67 lakhs",
+      "documents": ["Aadhaar", "Income certificate", "Property docs"],
+      "application_method": "PMAY website"
+    }
+  },
+  
+  "follow_up_questions": [
+    {
+      "pattern": "Am I eligible for (.*)?",
+      "response": "To check eligibility for {scheme}, I need: 1) Your occupation, 2) Family income, 3) Social category, 4) Your state. Can you provide these details?"
+    },
+    {
+      "pattern": "What is the last date for (.*)?",
+      "response": "Application deadlines vary by scheme and state. Check the official website or tell me your state for specific information about {scheme}."
+    },
+    {
+      "pattern": "How long does it take to get (.*)?",
+      "response": "Processing time for {scheme} typically takes 15-60 days. After approval, benefits are disbursed within 15-30 days to your bank account."
+    },
+    {
+      "pattern": "How much will I get from (.*)?",
+      "response": "The benefit amount for {scheme} depends on your category and eligibility. Check scheme details for specific amounts, or ask me about this scheme."
+    },
+    {
+      "pattern": "What documents do I need for (.*)?",
+      "response": "For {scheme}, you typically need: Aadhaar, income certificate, residence proof, and relevant certificates. Check the scheme page for exact requirements."
+    }
+  ],
+
+  "contextual_responses": {
+    "if_no_scheme_found": "I couldn't find a perfect match. Could you provide more details? What's your main need (education, housing, business)? What's your occupation or status?",
+    "if_multiple_schemes_found": "I found several schemes! What's most important - benefit amount, immediate help, or long-term support? This will help me recommend the best option.",
+    "income_limit_exceeded": "Your income might exceed limits for some schemes. Different states have different limits. Confirm your state and exact income - there might still be suitable schemes!",
+    "state_not_provided": "You haven't mentioned your state. Some schemes have state-specific variations. Which state are you from? This will help me give accurate information.",
+    "clarification_needed": "To help better, I need: 1) Your occupation/status, 2) Family income range, 3) Social category (if applicable), 4) Your state. Can you share these?"
+  }
+}
