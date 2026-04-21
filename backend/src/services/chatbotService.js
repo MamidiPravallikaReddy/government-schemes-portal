@@ -4,10 +4,14 @@ const ChatHistory = require('../models/ChatHistory');
 const { logger } = require('../utils/logger');
 const fs = require('fs');
 const path = require('path');
+const OpenAI = require('openai');
 
 class ChatbotService {
   constructor() {
     this.trainingData = this.loadTrainingData();
+    this.openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY
+    });
   }
 
   loadTrainingData() {
@@ -155,29 +159,13 @@ class ChatbotService {
       return contextualMsg;
     }
     
-    const topScheme = recommendations[0];
-    const schemeList = recommendations.slice(0, 3).map((s, i) => 
-      `${i + 1}. **${s.scheme_name || s.schemeName}** - ${(s.similarity_score || 0.5 * 100).toFixed(0)}% match`
-    ).join('\n');
-    
-    let response = `Based on your query, here are the most relevant schemes:\n\n${schemeList}\n\n`;
-    
-    // Add follow-up suggestions based on intent
-    if (intent === 'eligibility') {
-      response += "💡 Would you like to know eligibility criteria for any of these schemes?\n";
-    } else if (intent === 'benefits') {
-      response += "💡 Want to know the exact benefit amounts or details?\n";
-    } else if (intent === 'application') {
-      response += "💡 Need help with the application process or required documents?\n";
-    } else if (intent === 'documents') {
-      response += "💡 Would you like a detailed list of documents needed?\n";
+    // Use OpenAI to generate enhanced response if API key is available
+    if (process.env.OPENAI_API_KEY) {
+      return this.generateAIResponse(query, recommendations, usedFallback, intent);
     }
     
-    if (usedFallback) {
-      response += "\n⚠️ *Note: Using basic search. Results will improve when ML service is fully loaded.*";
-    }
-    
-    return response;
+    // Fallback to original response generation
+    return this.generateBasicResponse(query, recommendations, usedFallback, intent);
   }
 
   detectIntent(query) {
@@ -213,6 +201,93 @@ class ChatbotService {
     }
     
     return 'general';
+  }
+
+  async generateAIResponse(query, recommendations, usedFallback, intent) {
+    try {
+      const topSchemes = recommendations.slice(0, 3);
+      
+      // Prepare context for AI
+      const schemesContext = topSchemes.map((scheme, index) => 
+        `Scheme ${index + 1}: ${scheme.scheme_name || scheme.schemeName}
+Description: ${scheme.description || 'Not available'}
+Benefits: ${scheme.benefits || 'Not available'}
+Eligibility: ${scheme.eligibility || 'Not available'}
+Category: ${scheme.category || 'General'}
+Match Score: ${(scheme.similarity_score || 0.5) * 100}%`
+      ).join('\n\n');
+
+      const systemPrompt = `You are a helpful government schemes assistant. Your role is to help users find and understand government schemes in India. 
+
+Based on the user's query and the recommended schemes provided, generate a natural, helpful response that:
+1. Directly addresses the user's question
+2. Lists the most relevant schemes with brief descriptions
+3. Provides specific, actionable information
+4. Asks follow-up questions to better assist the user
+5. Uses a friendly, professional tone
+6. Includes relevant emojis for better readability
+
+Keep responses concise but informative. Focus on being helpful and guiding users to the right information.`;
+
+      const userPrompt = `User Query: "${query}"
+Intent: ${intent}
+
+Recommended Schemes:
+${schemesContext}
+
+${usedFallback ? 'Note: Using basic search due to ML service issues.' : ''}
+
+Please provide a helpful response about these schemes.`;
+
+      const completion = await this.openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt }
+        ],
+        max_tokens: 800,
+        temperature: 0.7
+      });
+
+      let response = completion.choices[0].message.content.trim();
+
+      // Add fallback note if needed
+      if (usedFallback) {
+        response += "\n\n⚠️ *Note: Using basic search. Results will improve when ML service is fully loaded.*";
+      }
+
+      return response;
+    } catch (error) {
+      logger.error('OpenAI API error:', error);
+      // Fallback to basic response
+      return this.generateBasicResponse(query, recommendations, usedFallback, intent);
+    }
+  }
+
+  generateBasicResponse(query, recommendations, usedFallback, intent) {
+    const topScheme = recommendations[0];
+    const schemeList = recommendations.slice(0, 3).map((s, i) => 
+      `${i + 1}. **${s.scheme_name || s.schemeName}** - ${(s.similarity_score || 0.5 * 100).toFixed(0)}% match`
+    ).join('\n');
+    
+    let response = `Based on your query, here are the most relevant schemes:\n\n${schemeList}\n\n`;
+    
+    // Add follow-up suggestions based on intent
+    if (intent === 'eligibility') {
+      response += "💡 Would you like to know eligibility criteria for any of these schemes?\n";
+    } else if (intent === 'benefits') {
+      response += "💡 Want to know the exact benefit amounts or details?\n";
+    } else if (intent === 'application') {
+      response += "💡 Need help with the application process or required documents?\n";
+    } else if (intent === 'documents') {
+      response += "💡 Would you like a detailed list of documents needed?\n";
+    }
+    
+    if (usedFallback) {
+      response += "\n⚠️ *Note: Using basic search. Results will improve when ML service is fully loaded.*";
+    }
+    
+    return response;
   }
 
   async fallbackSearch(query) {
